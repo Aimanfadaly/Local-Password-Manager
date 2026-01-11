@@ -1,0 +1,139 @@
+/* --- EXISTING STYLES (Keep existing) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+body {
+    width: 360px;
+    height: 300px !important;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #f7f9fb;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.hidden { display: none !important; }
+
+/* Header & Tabs */
+.header { margin-bottom: 1rem; }
+.header h1 { font-size: 1.5rem; font-weight: 800; color: #4f46e5; text-align: center; margin: 0 0 0.5rem 0; }
+.auth-status { font-size: 0.8rem; color: #6b7280; text-align: center; margin: 0; }
+
+.tab-nav { display: flex; margin-top: 0.75rem; border-bottom: 1px solid #e5e7eb; }
+.tab-btn {
+    flex: 1; padding: 0.5rem 0; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; background: none; border: none;
+    border-bottom: 2px solid transparent; color: #6b7280;
+}
+.tab-btn.active-tab { border-bottom-color: #4f46e5; color: #4f46e5; font-weight: 600; }
+
+/* Forms */
+.form-view { background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+.input-group { margin-bottom: 1rem; }
+.form-input { width: 100%; padding: 0.6rem; border: 1px solid #d1d5db; border-radius: 0.5rem; box-sizing: border-box; }
+.password-container { position: relative; display: flex; align-items: center; }
+.password-container input { padding-right: 70px; }
+.password-actions { position: absolute; right: 10px; display: flex; gap: 8px; }
+.action-icon { cursor: pointer; font-size: 1.1rem; }
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+.checkbox-group input { cursor: pointer; }
+.checkbox-group label { cursor: pointer; }
+
+/* Buttons */
+.primary-btn { width: 100%; padding: 0.75rem; background: #4f46e5; color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; }
+.primary-btn:hover { background: #4338ca; }
+.secondary-btn { width: 100%; padding: 0.6rem; background: white; border: 1px solid #d1d5db; color: #374151; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;}
+.secondary-btn:hover { background: #f3f4f6; }
+.text-btn { background: none; border: none; color: #4f46e5; cursor: pointer; font-size: 0.8rem; text-decoration: underline; }
+
+/* Vault List */
+.vault-controls { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.vault-items { max-height: 350px; overflow-y: auto; }
+.vault-item { background: white; padding: 10px; border-radius: 8px; margin-bottom: 8px; position: relative; border: 1px solid #e5e7eb; }
+.item-header { display: flex; align-items: center; margin-bottom: 4px; }
+.site-icon { width: 24px; height: 24px; object-fit: contain; margin-right: 10px; border-radius: 4px; }
+.item-site { font-weight: 600; color: #111827; }
+.action-buttons { display: flex; gap: 5px; margin-top: 5px; }
+.mini-btn { padding: 4px 8px; font-size: 0.75rem; border: none; border-radius: 4px; cursor: pointer; color: white; }
+.copy-btn { background: #9ca3af; }
+.edit-btn { background: #f59e0b; }
+.fill-btn { background: #4f46e5; }
+.delete-btn { position: absolute; top: 5px; right: 5px; background: none; border: none; color: #ef4444; cursor: pointer; font-size: 1.2rem; }
+
+/* Strength Meter */
+.strength-meter { height: 4px; background: #e5e7eb; border-radius: 2px; margin-top: 5px; overflow: hidden; }
+.strength-bar { height: 100%; width: 0%; transition: width 0.3s, background 0.3s; }
+.strength-text { font-size: 0.75rem; color: #6b7280; text-align: right; margin-top: 2px; }
+
+/* Health Dashboard */
+.health-card { background: white; padding: 1.5rem; border-radius: 0.75rem; text-align: center; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; border: 4px solid #4f46e5; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1rem auto; }
+#health-score { font-size: 1.8rem; font-weight: 800; color: #4f46e5; line-height: 1; }
+.score-label { font-size: 0.7rem; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; }
+
+.health-stats { display: flex; justify-content: center; gap: 20px; }
+.stat-item { display: flex; flex-direction: column; }
+.stat-num { font-size: 1.2rem; font-weight: 700; }
+.stat-label { font-size: 0.75rem; color: #6b7280; }
+.red { color: #ef4444; }
+.orange { color: #f59e0b; }
+.section-title { font-size: 0.9rem; color: #374151; margin-bottom: 0.5rem; font-weight: 700; }
+
+.issue-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; color: white; margin-left: auto; }
+.tag-weak { background: #ef4444; }
+.tag-reused { background: #f59e0b; }
+
+/* Settings Styles */
+.setting-section { margin-bottom: 1.5rem; }
+.section-desc { font-size: 0.75rem; color: #6b7280; margin: -5px 0 10px 0; }
+.divider { border: 0; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }
+
+/* NEW: Drop Zone Styles */
+.drop-zone {
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+    background-color: #f9fafb;
+}
+
+.drop-zone:hover {
+    border-color: #4f46e5;
+    background-color: #eef2ff;
+}
+
+.drop-zone.drag-active {
+    border-color: #4f46e5;
+    background-color: #e0e7ff;
+    transform: scale(1.02);
+}
+
+.drop-text {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0;
+    pointer-events: none; /* Prevent text selection while dragging */
+}
+
+.highlight {
+    color: #4f46e5;
+    font-weight: 600;
+}
+
+.file-name {
+    font-size: 0.8rem;
+    color: #111827;
+    margin-top: 8px;
+    font-weight: 600;
+    word-break: break-all;
+}

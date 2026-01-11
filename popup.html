@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./popup.css" />
+    <title>Local Password Manager</title>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Password Manager</h1>
+        <div id="main-nav" class="tab-nav hidden">
+            <button id="tabVault" class="tab-btn active-tab">Vault</button>
+            <button id="tabForm" class="tab-btn">Add</button>
+            <button id="tabHealth" class="tab-btn">Health</button>
+            <button id="tabSettings" class="tab-btn">Settings</button>
+            <button id="logoutBtn" class="tab-btn" style="margin-left:auto; background:none; border:none; font-size:1.2rem;" title="Lock">🔒</button>
+        </div>
+    </header>
+
+    <div id="setup-view" class="form-view hidden">
+        <div class="header">
+            <h2>Welcome!</h2>
+            <p class="auth-status">Create a Master Password to secure your local vault.</p>
+        </div>
+        <div class="input-group">
+            <input id="setup-pwd" placeholder="Create Master Password" type="password" class="form-input">
+        </div>
+        <div class="input-group">
+            <input id="setup-pwd-confirm" placeholder="Confirm Password" type="password" class="form-input">
+        </div>
+        <button id="setupBtn" class="primary-btn">Create Vault</button>
+    </div>
+
+    <div id="login-view" class="form-view hidden">
+        <div class="header">
+            <p class="auth-status">Vault is Locked</p>
+        </div>
+        <div class="input-group password-container">
+            <input id="login-password" placeholder="Enter Master Password" type="password" class="form-input">
+        </div>
+
+        <div id="bio-enroll-container" class="checkbox-group hidden">
+            <input type="checkbox" id="bio-enroll-check">
+            <label for="bio-enroll-check">Enable Biometrics for next time</label>
+        </div>
+
+        <button id="loginBtn" class="primary-btn">Unlock</button>
+        
+        <button id="bioLoginBtn" class="secondary-btn hidden" style="margin-top: 10px;">
+            <span class="icon">👆</span> Unlock with Biometrics
+        </button>
+        
+        <p id="login-error" class="error-text hidden">Incorrect Password</p>
+    </div>
+
+    <div id="form-view" class="hidden form-view">
+        <div class="input-group">
+            <input id="site" placeholder="Website (e.g., google.com)" class="form-input">
+        </div>
+        <div class="input-group">
+            <input id="username" placeholder="Email or Username" class="form-input">
+        </div>
+        <div class="input-group password-container">
+            <input id="password" placeholder="Password" type="password" class="form-input">
+            <div class="password-actions">
+                <span class="action-icon select-none" id="generateBtn" title="Generate">🎲</span>
+                <span class="action-icon select-none" id="toggleVisibilityBtn" title="Show/Hide">👁️</span>
+            </div>
+        </div>
+        
+        <div class="strength-meter">
+            <div id="strength-bar" class="strength-bar"></div>
+        </div>
+        <p id="strength-text" class="strength-text">Strength: N/A</p>
+
+        <button id="saveBtn" class="primary-btn">Save Credential</button>
+    </div>
+
+    <div id="vault-view" class="hidden">
+        <div id="items" class="vault-items"></div>
+        <div id="empty-state" class="empty-state hidden">
+            <p>Your vault is empty!</p>
+            <p>Add your first credential using the "Add" tab.</p>
+        </div>
+    </div>
+
+    <div id="health-view" class="hidden">
+        <div class="health-card">
+            <div class="score-circle">
+                <span id="health-score">0</span>
+                <span class="score-label">Score</span>
+            </div>
+            <div class="health-stats">
+                <div class="stat-item">
+                    <span class="stat-num red" id="weak-count">0</span>
+                    <span class="stat-label">Weak</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num orange" id="reused-count">0</span>
+                    <span class="stat-label">Reused</span>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="section-title">Security Issues</h3>
+        <div id="health-items" class="vault-items"></div>
+        <div id="health-empty" class="empty-state hidden">
+            <p>Great job!</p>
+            <p>No security issues found.</p>
+        </div>
+    </div>
+
+    <div id="settings-view" class="hidden form-view">
+        <div class="header">
+            <h2>Data Backup</h2>
+            <p class="auth-status">Securely export or restore your vault.</p>
+        </div>
+
+        <div class="setting-section">
+            <h3 class="section-title">Export Encrypted Backup</h3>
+            <p class="section-desc">Create a password to encrypt your backup file.</p>
+            <div class="input-group">
+                <input id="export-pwd" placeholder="Backup Password" type="password" class="form-input">
+            </div>
+            <button id="exportBtn" class="secondary-btn">
+                <span class="icon">⬇️</span> Download Backup
+            </button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="setting-section">
+            <h3 class="section-title">Import Backup</h3>
+            <p class="section-desc">Restore from a .json file.</p>
+            
+            <input type="file" id="import-file" accept=".json" class="hidden">
+            
+            <div id="drop-zone" class="drop-zone">
+                <p class="drop-text">Drag & Drop JSON file here<br>or <span class="highlight">Click to Browse</span></p>
+                <p id="file-name" class="file-name hidden"></p>
+            </div>
+
+            <div class="input-group">
+                <input id="import-pwd" placeholder="Enter Backup Password" type="password" class="form-input">
+            </div>
+            <button id="importBtn" class="secondary-btn">
+                <span class="icon">⬆️</span> Restore Data
+            </button>
+        </div>
+    </div>
+    
+    <script type="module" src="popup.js"></script>
+</body>
+</html>

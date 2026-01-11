@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Local Password Manager",
+  "version": "2.1",
+  "description": "Secure local password manager",
+  "permissions": ["storage", "scripting", "activeTab", "clipboardWrite"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "32": "images/icon-32.png" }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
